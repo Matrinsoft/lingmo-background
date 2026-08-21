@@ -1,0 +1,24 @@
+Source: lingmo-background
+Section: admin
+Priority: optional
+Maintainer: Lingmo OS Team <team@lingmo.org>
+Build-Depends:
+  debhelper (>= 11),
+  debhelper-compat (= 11),
+  just,
+  rust-all,
+  libdav1d-dev,
+  libwayland-dev,
+  libxkbcommon-dev,
+  mold,
+  nasm,
+  pkg-config,
+Standards-Version: 4.3.0
+Homepage: https://github.com/Matrinsoft/lingmo-background
+
+Package: lingmo-background
+Architecture: amd64 arm64
+Depends:
+  ${misc:Depends},
+  ${shlibs:Depends}
+Description: Cosmic Background
