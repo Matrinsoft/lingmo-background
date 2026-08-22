@@ -75,22 +75,22 @@ uninstall:
 
 # Vendor dependencies locally
 vendor:
-    mkdir -p .cargo
-    cargo vendor --sync Cargo.toml --sync config/Cargo.toml 2>/dev/null | awk '/^\[/{p=1} p' > .cargo/config.toml
-    if ! grep -q 'directory' .cargo/config.toml 2>/dev/null; then
-        echo '[source.crates-io]' >> .cargo/config.toml
-        echo 'replace-with = "vendored-sources"' >> .cargo/config.toml
-        echo '' >> .cargo/config.toml
-        echo '[source.vendored-sources]' >> .cargo/config.toml
-        echo 'directory = "vendor"' >> .cargo/config.toml
-    fi
-    grep '^source = "git+" Cargo.lock | sed 's/source = "//;s/"$//' | sort -u | while read src; do \
-        echo "[source \"$src\"]"; \
-        echo 'replace-with = "vendored-sources"'; \
-        echo ""; \
-    done >> .cargo/config.toml
-    tar pcf vendor.tar vendor .cargo/config.toml
-    rm -rf vendor
+	mkdir -p .cargo
+	cargo vendor --sync Cargo.toml --sync config/Cargo.toml 2>/dev/null | awk '/^\[/{p=1} p' > .cargo/config.toml
+	if ! grep -q 'directory' .cargo/config.toml 2>/dev/null; then
+	echo '[source.crates-io]' >> .cargo/config.toml
+	echo 'replace-with = "vendored-sources"' >> .cargo/config.toml
+	echo '' >> .cargo/config.toml
+	echo '[source.vendored-sources]' >> .cargo/config.toml
+	echo 'directory = "vendor"' >> .cargo/config.toml
+	fi
+	grep '^source = "git+" Cargo.lock | sed 's/source = "//;s/"$//' | sort -u | while read src; do \
+	echo "[source \"$src\"]"; \
+	echo 'replace-with = "vendored-sources"'; \
+	echo ""; \
+	done >> .cargo/config.toml
+	tar pcf vendor.tar vendor .cargo/config.toml
+	rm -rf vendor
 
 # Extracts vendored dependencies
 vendor-extract:
