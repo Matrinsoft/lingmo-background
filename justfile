@@ -49,7 +49,7 @@ build-release *args: (build-debug '--release' args)
 
 # Compiles release profile with vendored dependencies
 build-vendored *args:
-    vendor-extract
+    @just vendor-extract
     cp Cargo.toml Cargo.toml.bak
     sed -i '/^\[patch/,/^$/d' Cargo.toml
     cargo build --release {{ args }} --frozen --offline
