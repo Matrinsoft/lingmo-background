@@ -48,7 +48,12 @@ build-debug *args:
 build-release *args: (build-debug '--release' args)
 
 # Compiles release profile with vendored dependencies
-build-vendored *args: vendor-extract (build-release '--frozen --offline' args)
+build-vendored *args:
+    vendor-extract
+    cp Cargo.toml Cargo.toml.bak
+    sed -i '/^\[patch/,/^$/d' Cargo.toml
+    cargo build --release {{ args }} --frozen --offline
+    mv Cargo.toml.bak Cargo.toml
 
 # Runs a clippy check
 check *args:
@@ -74,9 +79,8 @@ uninstall:
 # Vendor dependencies locally
 vendor:
     mkdir -p .cargo
-    cargo vendor --sync Cargo.toml --sync config/Cargo.toml | head -n -1 > .cargo/config.toml
-    echo 'directory = "vendor"' >> .cargo/config.toml
-    tar pcf vendor.tar vendor
+    cargo vendor --sync Cargo.toml --sync config/Cargo.toml 2>/dev/null | awk '/^\[/{p=1} p' > .cargo/config.toml
+    tar pcf vendor.tar vendor .cargo/config.toml
     rm -rf vendor
 
 # Extracts vendored dependencies
