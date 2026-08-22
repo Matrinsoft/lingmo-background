@@ -1,4 +1,4 @@
-﻿[package]
+[package]
 name = "cosmic-bg"
 version = "1.5.0"
 edition = "2024"
@@ -33,7 +33,7 @@ image = { version = "0.25.10", default-features = false }
 tracing = "0.1.44"
 
 [dependencies.cosmic-config]
-git = "https://github.com/Matrinsoft/libcosmic"
+git = "https://github.com/Matrinsoft/liblingmo"
 features = ["calloop"]
 
 [profile.release]
