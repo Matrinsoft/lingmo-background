@@ -407,7 +407,7 @@ dependencies = [
 [[package]]
 name = "clipboard_macos"
 version = "0.1.0"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "objc",
  "objc-foundation",
@@ -417,7 +417,7 @@ dependencies = [
 [[package]]
 name = "clipboard_wayland"
 version = "0.2.2"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "dnd",
  "mime",
@@ -427,7 +427,7 @@ dependencies = [
 [[package]]
 name = "clipboard_x11"
 version = "0.4.2"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "thiserror 1.0.69",
  "x11rb",
@@ -707,7 +707,7 @@ dependencies = [
 [[package]]
 name = "dnd"
 version = "0.1.0"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "bitflags",
  "mime",
@@ -1571,7 +1571,7 @@ dependencies = [
 [[package]]
 name = "mime"
 version = "0.1.0"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "smithay-clipboard",
 ]
@@ -2475,7 +2475,7 @@ dependencies = [
 [[package]]
 name = "smithay-clipboard"
 version = "0.8.0"
-source = "git+https://github.com/Matrinsoft/smithay-clipboard?tag=sctk-0.20#859b02c88f45c554049a67c6ddeec1692ce0e20b"
+source = "git+https://github.com/pop-os/smithay-clipboard?tag=sctk-0.20#859b02c88f45c554049a67c6ddeec1692ce0e20b"
 dependencies = [
  "libc",
  "raw-window-handle",
@@ -3004,7 +3004,7 @@ dependencies = [
 [[package]]
 name = "window_clipboard"
 version = "0.4.1"
-source = "git+https://github.com/Matrinsoft/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
+source = "git+https://github.com/pop-os/window_clipboard.git?tag=sctk-0.20#f68595ee0e62fbd6589f4709b5aaa5c3c7ea5f6c"
 dependencies = [
  "clipboard-win",
  "clipboard_macos",
