@@ -50,10 +50,7 @@ build-release *args: (build-debug '--release' args)
 # Compiles release profile with vendored dependencies
 build-vendored *args:
     @just vendor-extract
-    cp Cargo.toml Cargo.toml.bak
-    sed -i '/^\[patch/,/^$/d' Cargo.toml
     cargo build --release {{ args }} --frozen --offline
-    mv Cargo.toml.bak Cargo.toml
 
 # Runs a clippy check
 check *args:
@@ -80,6 +77,11 @@ uninstall:
 vendor:
     mkdir -p .cargo
     cargo vendor --sync Cargo.toml --sync config/Cargo.toml 2>/dev/null | awk '/^\[/{p=1} p' > .cargo/config.toml
+    grep '^source = "git+" Cargo.lock | sed 's/source = "//;s/"$//' | sort -u | while read src; do \
+        echo "[source \"$src\"]"; \
+        echo 'replace-with = "vendored-sources"'; \
+        echo ""; \
+    done >> .cargo/config.toml
     tar pcf vendor.tar vendor .cargo/config.toml
     rm -rf vendor
 
