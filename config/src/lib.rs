@@ -9,12 +9,12 @@ use std::borrow::Cow;
 use std::collections::HashSet;
 use std::path::PathBuf;
 
-pub const NAME: &str = "com.system76.CosmicBackground";
+pub const NAME: &str = "com.lingmoos.LingmoBackground";
 pub const BACKGROUNDS: &str = "backgrounds";
 pub const DEFAULT_BACKGROUND: &str = "all";
 pub const SAME_ON_ALL: &str = "same-on-all";
 
-/// Create a context to the `cosmic-bg` config.
+/// Create a context to the `lingmo-background` config.
 ///
 /// # Errors
 ///

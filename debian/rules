@@ -1,6 +1,6 @@
 #!/usr/bin/make -f
 
-DESTDIR = debian/cosmic-bg
+DESTDIR = debian/lingmo-background
 CLEAN ?= 1
 VENDOR ?= 1
 

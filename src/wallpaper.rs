@@ -8,8 +8,8 @@ use std::io::BufReader;
 use std::path::PathBuf;
 use std::time::{Duration, Instant};
 
-use cosmic_bg_config::state::State;
-use cosmic_bg_config::{Color, Entry, SamplingMethod, ScalingMode, Source};
+use lingmo_background_config::state::State;
+use lingmo_background_config::{Color, Entry, SamplingMethod, ScalingMode, Source};
 use cosmic_config::CosmicConfigEntry;
 use image::{DynamicImage, ImageDecoder, ImageReader, ImageResult, Limits};
 use notify::{RecommendedWatcher, RecursiveMode, Watcher};
@@ -469,3 +469,4 @@ mod tests {
         );
     }
 }
+

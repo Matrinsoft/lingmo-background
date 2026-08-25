@@ -32,8 +32,8 @@ mod malloc {
     }
 }
 
-use cosmic_bg_config::Config;
-use cosmic_bg_config::state::State;
+use lingmo_background_config::Config;
+use lingmo_background_config::state::State;
 use cosmic_config::CosmicConfigEntry;
 use cosmic_config::calloop::ConfigWatchSource;
 use eyre::Context;
@@ -111,7 +111,7 @@ fn main() -> color_eyre::Result<()> {
         .map_err(|err| err.error)
         .wrap_err("failed to insert main EventLoop into WaylandSource")?;
 
-    let config_context = cosmic_bg_config::context();
+    let config_context = lingmo_background_config::context();
 
     let config = match config_context {
         Ok(config_context) => {
@@ -126,13 +126,13 @@ fn main() -> color_eyre::Result<()> {
 
                     for key in &keys {
                         match key.as_str() {
-                            cosmic_bg_config::BACKGROUNDS => {
+                            lingmo_background_config::BACKGROUNDS => {
                                 tracing::debug!("updating backgrounds");
                                 state.config.load_backgrounds(&conf_context);
                                 changes_applied = true;
                             }
 
-                            cosmic_bg_config::DEFAULT_BACKGROUND => {
+                            lingmo_background_config::DEFAULT_BACKGROUND => {
                                 tracing::debug!("updating default background");
                                 let entry = conf_context.default_background();
 
@@ -142,7 +142,7 @@ fn main() -> color_eyre::Result<()> {
                                 }
                             }
 
-                            cosmic_bg_config::SAME_ON_ALL => {
+                            lingmo_background_config::SAME_ON_ALL => {
                                 tracing::debug!("updating same_on_all");
                                 state.config.same_on_all = conf_context.same_on_all();
 
@@ -661,3 +661,4 @@ fn init_logger() {
 
     tracing_subscriber::registry().with(log_filter).init();
 }
+

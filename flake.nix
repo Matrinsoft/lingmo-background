@@ -1,5 +1,5 @@
 {
-  description = "Background for the COSMIC desktop environment";
+  description = "Background for the Lingmo desktop environment";
 
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
@@ -43,18 +43,18 @@
         };
 
         cargoArtifacts = craneLib.buildDepsOnly pkgDef;
-        cosmic-bg = craneLib.buildPackage (pkgDef // {
+        lingmo-background = craneLib.buildPackage (pkgDef // {
           inherit cargoArtifacts;
         });
       in {
         checks = {
-          inherit cosmic-bg;
+          inherit lingmo-background;
         };
 
-        packages.default = cosmic-bg;
+        packages.default = lingmo-background;
 
         apps.default = flake-utils.lib.mkApp {
-          drv = cosmic-bg;
+          drv = lingmo-background;
         };
 
         devShells.default = pkgs.mkShell {
